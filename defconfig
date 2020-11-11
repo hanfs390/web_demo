@@ -1,0 +1,23 @@
+#MySQL configure
+MySQLUserName=root
+MySQLPassword=123456
+MySQLHost=192.168.100.7
+MySQLPort=3306
+MySQLDataBase=ac
+MySQLCharset=utf8
+LogFilePath=/tmp
+LogFilesCount=5
+MaxFileLines=10000
+LogLevel=0
+#Redis configure
+RedisHost=192.168.100.7
+RedisPort=6379
+#Mqtt configure
+MqttHost=192.168.100.7
+MqttPort=8883
+SSL=enable
+#InfluxDB configure
+InfluxDBHost=192.168.100.7
+InfluxDBPort=8086
+InfluxDBUserName=root
+InfluxDBPassword=123456
