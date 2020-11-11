@@ -1,2 +1,4 @@
 web_demo
 .idea
+go.mod
+go.sum
