@@ -40,7 +40,7 @@ function showAllVideo() {
                 videoHtml = videoHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href=`+item.Url+`><img src=`+item.Picture+`></a>
+                            <a href=`+item.Url+` target="view_window"><img src=`+item.Picture+`></a>
                             <div class="caption">
                                 <p>Name:`+ temp+`</p>
                                 <p>Label:`+item.Label+`</p>
@@ -65,7 +65,7 @@ function showVideoByDir(dir) {
                 videoHtml = videoHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href=`+item.Url+`><img src=`+item.Picture+`></a>
+                            <a href=`+item.Url+` target="view_window"><img src=`+item.Picture+`></a>
                             <div class="caption">
                                 <p>Name:`+ temp+`</p>
                                 <p>Label:`+item.Label+`</p>
@@ -90,7 +90,7 @@ function showVideoByLabel(label) {
                 videoHtml = videoHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href=`+item.Url+`><img src=`+item.Picture+`></a>
+                            <a href=`+item.Url+` target="view_window"><img src=`+item.Picture+`></a>
                             <div class="caption">
                                 <p>Name:`+ temp+`</p>
                                 <p>Label:`+item.Label+`</p>

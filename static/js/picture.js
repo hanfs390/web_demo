@@ -40,7 +40,7 @@ function showAllPicture() {
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+item.FileName+`"><img src=`+item.Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+item.FileName+`" target="view_window" ><img src=`+item.Url+`/1.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+item.Label+`</p>
@@ -65,7 +65,7 @@ function showPictureByDir(dir) {
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+item.FileName+`"><img src=`+item.Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+item.FileName+`" target="view_window"><img src=`+item.Url+`/1.jpg`+`></a>
 			                <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+item.Label+`</p>
@@ -90,7 +90,7 @@ function showPictureByLabel(label) {
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+item.FileName+`"><img src=`+item.Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+item.FileName+`" target="view_window"><img src=`+item.Url+`/1.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+item.Label+`</p>
