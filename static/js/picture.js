@@ -28,6 +28,7 @@ function showHead() {
         }
     });
 }
+var sizePage = 10;
 function showAllPicture() {
     $.ajax({
         type: "GET",
@@ -35,21 +36,83 @@ function showAllPicture() {
         dataType: "json",
         success: function (data) {
             var pictureHtml="";
+            var allPictureArr = new Array(2000);
+            var allPictureNumber = 0;
+            var allCurrentPage = 0;
+            var allPageNumber = 0;
             $.each(data, function(i, item) {
-                var temp = item.Show
+                allPictureNumber++;
+                allPictureArr[i] = item;
+            });
+            allPageNumber = (allPictureNumber / sizePage) + 1;
+            for (var i = 0; i < sizePage; i++) {
+                var temp = allPictureArr[i].Show
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+item.FileName+`" target="view_window" ><img src=`+item.Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
-                                <p>Label:`+item.Label+`</p>
+                                <p>Label:`+allPictureArr[i].Label+`</p>
                             </div>
                         </div>
                     </div>`;
-            });
+            }
+
             $("#showPictureList").empty();
             $("#showPictureList").append(pictureHtml);
+            var pageHtml = "";
+            for (var i = 0; i < allPageNumber; i++) {
+                pageHtml = pageHtml + ` <li><a name="page" aria-label="`+ i.toString() +`">`+ (i+1).toString() +`</a></li>`;
+            }
+            $(".pagination").empty();
+            $(".pagination").append(`<li>
+                                <a name="page" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            ` + pageHtml +`
+                            <li>
+                                <a name="page" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>`);
+
+            $("a[name=page]").click(function () {
+                var flag = $(this).attr("aria-label");
+                pictureHtml = "";
+                if (flag == "Previous") {
+                    if (allCurrentPage >= 1) {
+                        allCurrentPage--;
+                    } else {
+                        allCurrentPage = 0;
+                    }
+                } else if (flag == "Next") {
+                    if (allCurrentPage < allPageNumber) {
+                        allCurrentPage++;
+                    } else {
+                        allCurrentPage = allPageNumber;
+                    }
+                } else {
+                    allCurrentPage = parseInt(flag);
+                }
+                var offset = (allCurrentPage * sizePage) - 1;
+                for (var i = offset; i < (offset + sizePage); i++) {
+                    var temp = allPictureArr[i].Show
+                    pictureHtml = pictureHtml +
+                        `<div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <div class="caption">
+                                <p>`+ temp+`</p>
+                                <p>Label:`+allPictureArr[i].Label+`</p>
+                            </div>
+                        </div>
+                    </div>`;
+                }
+                $("#showPictureList").empty();
+                $("#showPictureList").append(pictureHtml);
+            });
         }
     });
 }
@@ -60,21 +123,83 @@ function showPictureByDir(dir) {
         dataType: "json",
         success: function (data) {
             var pictureHtml="";
+            var allPictureArr = new Array(2000);
+            var allPictureNumber = 0;
+            var allCurrentPage = 0;
+            var allPageNumber = 0;
             $.each(data, function(i, item) {
-                var temp = item.Show
+                allPictureNumber++;
+                allPictureArr[i] = item;
+            });
+            allPageNumber = (allPictureNumber / sizePage) + 1;
+            for (var i = 0; i < sizePage; i++) {
+                var temp = allPictureArr[i].Show
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+item.FileName+`" target="view_window"><img src=`+item.Url+`/1.jpg`+`></a>
-			                <div class="caption">
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <div class="caption">
                                 <p>`+ temp+`</p>
-                                <p>Label:`+item.Label+`</p>
+                                <p>Label:`+allPictureArr[i].Label+`</p>
                             </div>
                         </div>
                     </div>`;
-            });
+            }
+
             $("#showPictureList").empty();
             $("#showPictureList").append(pictureHtml);
+            var pageHtml = "";
+            for (var i = 0; i < allPageNumber; i++) {
+                pageHtml = pageHtml + ` <li><a name="page" aria-label="`+ i.toString() +`">`+ (i+1).toString() +`</a></li>`;
+            }
+            $(".pagination").empty();
+            $(".pagination").append(`<li>
+                                <a name="page" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            ` + pageHtml +`
+                            <li>
+                                <a name="page" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>`);
+
+            $("a[name=page]").click(function () {
+                var flag = $(this).attr("aria-label");
+                pictureHtml = "";
+                if (flag == "Previous") {
+                    if (allCurrentPage >= 1) {
+                        allCurrentPage--;
+                    } else {
+                        allCurrentPage = 0;
+                    }
+                } else if (flag == "Next") {
+                    if (allCurrentPage < allPageNumber) {
+                        allCurrentPage++;
+                    } else {
+                        allCurrentPage = allPageNumber;
+                    }
+                } else {
+                    allCurrentPage = parseInt(flag);
+                }
+                var offset = (allCurrentPage * sizePage) - 1;
+                for (var i = offset; i < (offset + sizePage); i++) {
+                    var temp = allPictureArr[i].Show
+                    pictureHtml = pictureHtml +
+                        `<div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <div class="caption">
+                                <p>`+ temp+`</p>
+                                <p>Label:`+allPictureArr[i].Label+`</p>
+                            </div>
+                        </div>
+                    </div>`;
+                }
+                $("#showPictureList").empty();
+                $("#showPictureList").append(pictureHtml);
+            });
         }
     });
 }
@@ -85,21 +210,83 @@ function showPictureByLabel(label) {
         dataType: "json",
         success: function (data) {
             var pictureHtml="";
+            var allPictureArr = new Array(2000);
+            var allPictureNumber = 0;
+            var allCurrentPage = 0;
+            var allPageNumber = 0;
             $.each(data, function(i, item) {
-                var temp = item.Show
+                allPictureNumber++;
+                allPictureArr[i] = item;
+            });
+            allPageNumber = (allPictureNumber / sizePage) + 1;
+            for (var i = 0; i < sizePage; i++) {
+                var temp = allPictureArr[i].Show
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+item.FileName+`" target="view_window"><img src=`+item.Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
-                                <p>Label:`+item.Label+`</p>
+                                <p>Label:`+allPictureArr[i].Label+`</p>
                             </div>
                         </div>
                     </div>`;
-            });
+            }
+
             $("#showPictureList").empty();
             $("#showPictureList").append(pictureHtml);
+            var pageHtml = "";
+            for (var i = 0; i < allPageNumber; i++) {
+                pageHtml = pageHtml + ` <li><a name="page" aria-label="`+ i.toString() +`">`+ (i+1).toString() +`</a></li>`;
+            }
+            $(".pagination").empty();
+            $(".pagination").append(`<li>
+                                <a name="page" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            ` + pageHtml +`
+                            <li>
+                                <a name="page" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>`);
+
+            $("a[name=page]").click(function () {
+                var flag = $(this).attr("aria-label");
+                pictureHtml = "";
+                if (flag == "Previous") {
+                    if (allCurrentPage >= 1) {
+                        allCurrentPage--;
+                    } else {
+                        allCurrentPage = 0;
+                    }
+                } else if (flag == "Next") {
+                    if (allCurrentPage < allPageNumber) {
+                        allCurrentPage++;
+                    } else {
+                        allCurrentPage = allPageNumber;
+                    }
+                } else {
+                    allCurrentPage = parseInt(flag);
+                }
+                var offset = (allCurrentPage * sizePage) - 1;
+                for (var i = offset; i < (offset + sizePage); i++) {
+                    var temp = allPictureArr[i].Show
+                    pictureHtml = pictureHtml +
+                        `<div class="col-sm-6 col-md-4">
+                        <div class="thumbnail">
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <div class="caption">
+                                <p>`+ temp+`</p>
+                                <p>Label:`+allPictureArr[i].Label+`</p>
+                            </div>
+                        </div>
+                    </div>`;
+                }
+                $("#showPictureList").empty();
+                $("#showPictureList").append(pictureHtml);
+            });
         }
     });
 }
