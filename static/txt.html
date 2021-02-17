@@ -33,7 +33,6 @@
   </head>
 
   <body>
-
     <!-- Fixed navbar -->
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
@@ -47,54 +46,15 @@
           <a class="navbar-brand" href="./index.html">Home</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="./video.html">Videos</a></li>
-            <li><a href="./picture.html">Pictures</a></li>
-            <li class="active"><a href="./txt.html">Txt</a></li>
+          <ul id="navHead" class="nav navbar-nav">
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
-
     <div class="container theme-showcase" role="main">
-
-      <div class="row">
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="1.jpg" alt="...">
-            <div class="caption">
-              <h3>Thumbnail label</h3>
-           </div>
-          </div>
+      <div id="showTxtList"class="row">
         </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="1.jpg" alt="...">
-            <div class="caption">
-              <h3>Thumbnail label</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="1.jpg" alt="...">
-            <div class="caption">
-              <h3>Thumbnail label</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-4">
-          <div class="thumbnail">
-            <img src="1.jpg" alt="...">
-            <div class="caption">
-              <h3>Thumbnail label</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div> <!-- /container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -105,6 +65,11 @@
     <script src="./js/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
-  
-
-<svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="57" style="font-weight:bold;font-size:57pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thirdslide</text></svg></body></html>
+    <script src="./js/txt.js"></script>
+    <script>
+        $(document).ready(function () {
+            showHead();
+            showAllVideo();
+        });
+    </script>
+    <svg xmlns="http://www.w3.org/2000/svg" width="1140" height="500" viewBox="0 0 1140 500" preserveAspectRatio="none" style="display: none; visibility: hidden; position: absolute; top: -100%; left: -100%;"><defs><style type="text/css"></style></defs><text x="0" y="57" style="font-weight:bold;font-size:57pt;font-family:Arial, Helvetica, Open Sans, sans-serif">Thirdslide</text></svg></body></html>

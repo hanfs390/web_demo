@@ -28,7 +28,7 @@ function showHead() {
         }
     });
 }
-var sizePage = 10;
+var sizePage = 20;
 function showAllPicture() {
     $.ajax({
         type: "GET",

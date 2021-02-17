@@ -2,8 +2,9 @@
 #change file
 
 rename_all(){
-	#rename "s/ /_/g" $1/*
-	#rename "s/yishesp.com/_/g" $1/*
+	echo "第一个参数为 $1 !"
+	rename "s/ /_/g" $1/*
+	rename "s/yishesp.com/_/g" $1/*
 	rename "s/_//g" $1/*
 	for file in $1/*; do
     		if [ -d $file ];then
@@ -11,7 +12,6 @@ rename_all(){
 		rename_all $file
     		fi
 	done
-	echo "第一个参数为 $1 !"
 }
 
-rename_all "/home/hfs/others/picture"
+rename_all "/home/hfs/others/picture/欧美色图"
