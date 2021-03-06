@@ -1,13 +1,13 @@
 package global
 
 const (
-	//VideoDir = "/home/hfs/videos"
-	VideoDir = "G:\\"
+	VideoDir = "/media/hfs/he/videos"
+//	VideoDir = "G:\\"
 	RouteVideoDir = "/dataVideo"
-	TxtDir = "/home/hfs/txt"
+	TxtDir = "/media/hfs/txt"
 	//TxtDir = "E:\\txt"
 	RouteTxtDir = "/dataTxt"
-	//PictureDir = "/home/hfs/others/picture"
-	PictureDir = "E:\\picture"
+	PictureDir = "/media/hfs/picture"
+//	PictureDir = "E:\\picture"
 	RoutePictureDir = "/dataPicture"
 )

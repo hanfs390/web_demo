@@ -66,11 +66,10 @@ func getTxtByDir(c echo.Context) error {
 	return c.JSON(http.StatusOK, "no found")
 }*/
 
-
 func routeTxt(e *echo.Echo) {
 	e.GET("/txt/head", getTxtHead) /* get dir list*/
 	e.GET("/txt/allTxt", getAllTxtTxt)
 	e.GET("/txt/dirTxt", getTxtByDir)
-	//e.GET("/txt/nameTxt", getTxtByName)
+	e.GET("/txt/nameTxt", getTxtByName)
 	e.Static(global.RouteTxtDir, global.TxtDir)
 }

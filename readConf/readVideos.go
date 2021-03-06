@@ -38,7 +38,7 @@ func readVideoLabel(path string, dirNode *VideoDir, label string) {
 				video.FileName = video.FileName[:40]
 			}
 			video.Url = hexVideo + "/" + fi.Name()
-			picSrc := strings.Replace(fi.Name(), ".mp4", ".jpg", 1)
+			picSrc := strings.Replace(fi.Name(), ".mp4", "-front.jpg", 1)
 			video.Picture = global.RouteVideoDir + "/pictures/" + picSrc
 			dirNode.VideoList = append(dirNode.VideoList, video)
 		}

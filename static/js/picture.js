@@ -50,7 +50,7 @@ function showAllPicture() {
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1-front.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+allPictureArr[i].Label+`</p>
@@ -102,7 +102,7 @@ function showAllPicture() {
                     pictureHtml = pictureHtml +
                         `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1-front.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+allPictureArr[i].Label+`</p>
@@ -137,7 +137,7 @@ function showPictureByDir(dir) {
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1-front.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+allPictureArr[i].Label+`</p>
@@ -189,7 +189,7 @@ function showPictureByDir(dir) {
                     pictureHtml = pictureHtml +
                         `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1-front.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+allPictureArr[i].Label+`</p>
@@ -224,7 +224,7 @@ function showPictureByLabel(label) {
                 pictureHtml = pictureHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1-front.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+allPictureArr[i].Label+`</p>
@@ -276,7 +276,7 @@ function showPictureByLabel(label) {
                     pictureHtml = pictureHtml +
                         `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1.jpg`+`></a>
+                            <a href="/picture/namePicture?name=`+allPictureArr[i].FileName+`" target="view_window" ><img src=`+allPictureArr[i].Url+`/1-front.jpg`+`></a>
                             <div class="caption">
                                 <p>`+ temp+`</p>
                                 <p>Label:`+allPictureArr[i].Label+`</p>

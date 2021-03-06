@@ -14,4 +14,4 @@ rename_all(){
 	done
 }
 
-rename_all "/home/hfs/others/picture/欧美色图"
+rename_all "/home/hfs/Desktop/ke/txt"

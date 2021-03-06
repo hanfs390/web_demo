@@ -8,10 +8,16 @@ import (
 	"web_demo/global"
 )
 /* txt no include label */
+type chapters struct {
+	Name string
+	Start int
+	Stop int
+}
 type TxtNode struct {
 	FileName string
 	Url string
 	Dir string
+	ch []chapters
 }
 type TxtDir struct {
 	Dir       string
