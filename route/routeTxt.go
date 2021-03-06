@@ -2,10 +2,10 @@ package route
 
 import (
 	"github.com/labstack/echo"
-	"web_demo/global"
 	"web_demo/readConf"
 	"net/http"
 	"fmt"
+	"strconv"
 )
 
 type txtHead struct {
@@ -44,8 +44,8 @@ func getTxtByDir(c echo.Context) error {
 	return c.JSON(http.StatusBadRequest, dir + " is no found")
 }
 
-/*func getTxtByName(c echo.Context) error {
-	name := c.QueryParam("name") //name is md5 string
+func getTxtByName(c echo.Context) error {
+	name := c.QueryParam("name")
 	if name == "" {
 		return c.JSON(http.StatusBadRequest, "name is error")
 	}
@@ -53,23 +53,36 @@ func getTxtByDir(c echo.Context) error {
 	for i := 0; i < len(readConf.TxtData); i++ {
 		for j := 0; j < len(readConf.TxtData[i].TxtList); j++ {
 			if name == readConf.TxtData[i].TxtList[j].FileName {
-				fmt.Println("we found it")
-				var imgHtml string
-				for n := 1; n <= readConf.TxtData[i].TxtList[j].Number; n++ {
-					number := strconv.Itoa(n)
-					imgHtml = imgHtml + `<img src="`+readConf.TxtData[i].TxtList[j].Url+`/`+ number +`.jpg">`
+				err := readConf.CreateTxtChapters(&readConf.TxtData[i].TxtList[j])
+				if err != nil {
+					return c.JSON(http.StatusOK, "no found")
 				}
-				return c.HTML(http.StatusOK, `<html><head><title>`+name+`</title></head><body><div>`+imgHtml+`</div></body></html>`)
+				html := readConf.BuildTxtDirHTML(&readConf.TxtData[i].TxtList[j])
+				return c.HTML(http.StatusOK, html)
 			}
 		}
 	}
 	return c.JSON(http.StatusOK, "no found")
-}*/
-
+}
+func getChapter(c echo.Context) error {
+	name := c.QueryParam("name")
+	number := c.QueryParam("chapters") //name is md5 string
+	if name == "" || number == "" {
+		return c.JSON(http.StatusBadRequest, "name or chapters is error")
+	}
+	num, err :=  strconv.Atoi(number)
+	if err != nil {
+		return c.JSON(http.StatusBadRequest, "number is error")
+	}
+	data := readConf.GetWordinTxt(name, num)
+	return c.HTML(http.StatusOK, `<html><head><title>`+name+`</title></head><body><div>`+ data +`</div></body></html>`)
+}
 func routeTxt(e *echo.Echo) {
 	e.GET("/txt/head", getTxtHead) /* get dir list*/
 	e.GET("/txt/allTxt", getAllTxtTxt)
 	e.GET("/txt/dirTxt", getTxtByDir)
 	e.GET("/txt/nameTxt", getTxtByName)
-	e.Static(global.RouteTxtDir, global.TxtDir)
+	e.GET("/txt/chapters", getChapter)
+	//e.Static(global.RouteTxtDir, global.TxtDir)
+
 }

@@ -4,9 +4,9 @@ import "github.com/labstack/echo"
 
 func InitRoutes() {
 	e := echo.New()
-	routePicture(e)
+	//routePicture(e)
 	routeTxt(e)
-	routeVideo(e)
+	//routeVideo(e)
 	e.Static("/", "static")
 	e.Logger.Fatal(e.Start(":1323"))
 }

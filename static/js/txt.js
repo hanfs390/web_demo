@@ -24,7 +24,7 @@ function showAllTxt() {
                 txtHtml = txtHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href=`+item.Url+` target="view_window">`+temp+`</a>
+                            <a href=/txt/nameTxt?name=`+ temp +` target="view_window">`+temp+`</a>
                         </div>
                     </div>`;
             });
@@ -45,7 +45,7 @@ function showTxtByDir(dir) {
                 txtHtml = txtHtml +
                     `<div class="col-sm-6 col-md-4">
                         <div class="thumbnail">
-                            <a href=`+item.Url+` target="view_window">`+temp+`</a>
+                            <a href=/txt/nameTxt?name=`+ temp +` target="view_window">`+temp+`</a>
                         </div>
                     </div>`;
             });
